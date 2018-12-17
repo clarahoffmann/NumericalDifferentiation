@@ -1,0 +1,133 @@
+# set working directory
+setwd("/Users/claracharlottehoffmann/Desktop/NumericalIntroductory")
+
+# load packages
+if (!require("pacman")) 
+  install.packages("pacman"); library("pacman") 
+p_load("dplyr", 
+       "reshape2")
+
+# define some function
+f <- function(x){
+  y = x^2
+  return(y)
+}
+f(2)
+# calculate two-point estimation of derivative
+twopoint <- function(f, x, h){
+  func <- f
+  deriv <- (func(x+h)-func(x))/h
+  return(deriv)
+}
+twopoint(f,2,0.5)
+
+# calculate three-point estimation of derivative
+threepoint <- function(f, x, h){
+  func <- f
+  deriv <- (func(x+h)-func(x-h))/(2*h)
+  return(deriv)
+}
+threepoint(f,2,0.5)
+
+# calculate five-point estimation of derivative
+fivepoint <- function(f, x, h){
+  func <- f
+  deriv <- (func(x-2*h)-8*func(x-h)+8*f(x+h)-f(x+2*h))/(12*h)
+  return(deriv)
+}
+fivepoint(f,2,0.5)
+
+
+
+
+twopointmax <- function(f, x, max){
+  # define function
+  func <- f
+  # empty matrix for returning values
+  v <- 1:max
+  mat <- matrix(rep(v,2), ncol = 2)
+  # set counter to zero
+  count = 0
+  # start producing the derivatives
+  repeat {
+    count = count + 1
+    h = 1/(2^count)
+    # 2point numerical derivative
+    deriv <- (func(x+h)-func(x))/h
+    mat[count,2] <- deriv
+    if (count == max){
+      break
+    }
+  }
+  return(mat)
+}
+
+
+threepointmax <- function(f, x, max){
+  # define function
+  func <- f
+  # empty matrix for returning values
+  v <- 1:max
+  mat <- matrix(rep(v,2), ncol = 2)
+  # set counter to zero
+  count = 0
+  # start producing the derivatives
+  repeat {
+    count = count + 1
+    h = 1/(2^count)
+    # 3point numerical derivative
+    deriv <- (func(x+h)-func(x-h))/(2*h)
+    mat[count,2] <- deriv
+    if (count == max){
+      break
+    }
+  }
+  return(mat)
+}
+
+fivepointmax <- function(f, x, max){
+  # define function
+  func <- f
+  # empty matrix for returning values
+  v <- 1:max
+  mat <- matrix(rep(v,2), ncol = 2)
+  # set counter to zero
+  count = 0
+  # start producing the derivatives
+  repeat {
+    count = count + 1
+    h = 1/(2^count)
+    # 3point numerical derivative
+    deriv <- (func(x-2*h)-8*func(x-h)+8*f(x+h)-f(x+2*h))/(12*h)
+    mat[count,2] <- deriv
+    if (count == max){
+      break
+    }
+  }
+  return(mat)
+}
+
+f <- function(x){
+  y = (x^2)*sin(1/x)
+  return(y)
+}
+
+mytwo <- twopointmax( f , 0.1, 75) %>% as.data.frame()
+names(mytwo) <- c("iteration", "Two-Point")
+mythree <- threepointmax( f , 0.1, 75)  %>% as.data.frame()
+names(mythree) <- c("iteration", "Three-Point")
+myfive <- fivepointmax( f , 0.1, 75)  %>% as.data.frame()
+names(myfive) <- c("iteration", "Five-Point")
+
+output <- cbind(mytwo,mythree,myfive) %>% melt(id = "iteration")
+
+figure <- ggplot( data = output, aes(x = iteration, y = value,
+                           group=variable, 
+                           colour = variable,
+                           shape = variable,
+                           linetype = variable)) + 
+  geom_line() + geom_point() + theme_bw() +
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+figure
+ggsave("ComparisonOfMethods_verylow.pdf", plot = figure ) # save
