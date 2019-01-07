@@ -1,0 +1,33 @@
+
+# load packages
+if (!require("pacman")) 
+  install.packages("pacman"); library("pacman") 
+p_load("dplyr")
+
+# create data from example
+data <- cbind( t = c(0,3,6,9,12,15),
+      r = c(18.803, 18.861, 18.946, 
+            19.042, 19.148, 19.260),
+      theta = c(0.7854, 0.7792, 0.7701, 
+                0.7594, 0.7477, 0.7350)) %>% 
+  as.data.frame()
+
+# calculate first derivative
+FirstDeriv <- function(df){
+  l <- length(data$r)
+  lag.r <- lag(data$r)
+  lead.r <- lead(data$r)
+  deriv.r <- (lead.r-lag.r)/6
+  deriv.r[1] <-  (df$r[1] - df$r[2])/3
+  deriv.r[l] <- (df$r[l-1] - df$r[l])/(3)
+  lag.theta <- lag(data$theta)
+  lead.theta <- lead(data$theta)
+  deriv.theta <- (lead.theta-lag.theta)/6
+  deriv.theta[1] <-  (df$theta[1] - df$theta[2])/3
+  deriv.theta[l] <- (df$theta[l-1] - df$theta[l])/(3)
+  deriv <- (sqrt((deriv.r^2) + (df$r*deriv.theta)^2))*3600
+  return(deriv)
+}
+FirstDeriv(data)
+
+
