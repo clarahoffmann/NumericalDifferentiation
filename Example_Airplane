@@ -1,10 +1,13 @@
 
+# set working directory
+setwd("/Users/claracharlottehoffmann/Desktop/NumericalIntroductory")
+
 # load packages
 if (!require("pacman")) 
   install.packages("pacman"); library("pacman") 
-p_load("dplyr")
+p_load("dplyr",
+       "ggplot2")
 
-# create data from example
 data <- cbind( t = c(0,3,6,9,12,15),
       r = c(18.803, 18.861, 18.946, 
             19.042, 19.148, 19.260),
@@ -12,22 +15,47 @@ data <- cbind( t = c(0,3,6,9,12,15),
                 0.7594, 0.7477, 0.7350)) %>% 
   as.data.frame()
 
-# calculate first derivative
-FirstDeriv <- function(df){
-  l <- length(data$r)
-  lag.r <- lag(data$r)
-  lead.r <- lead(data$r)
-  deriv.r <- (lead.r-lag.r)/6
-  deriv.r[1] <-  (df$r[1] - df$r[2])/3
-  deriv.r[l] <- (df$r[l-1] - df$r[l])/(3)
-  lag.theta <- lag(data$theta)
-  lead.theta <- lead(data$theta)
-  deriv.theta <- (lead.theta-lag.theta)/6
-  deriv.theta[1] <-  (df$theta[1] - df$theta[2])/3
-  deriv.theta[l] <- (df$theta[l-1] - df$theta[l])/(3)
-  deriv <- (sqrt((deriv.r^2) + (df$r*deriv.theta)^2))*3600
-  return(deriv)
+FirstSecDeriv <- function(df){
+  # first derivative
+  l <- length(df$r)
+  lag.r <- lag(df$r)
+  lag.t <- lag(df$t)
+  lead.r <- lead(df$r)
+  lead.t <- lead(df$t)
+  deriv.r <- (lead.r-lag.r)/(lead.t-lag.t)
+  deriv.r[1] <-  (df$r[2] - df$r[1])/(df$t[2] - df$t[1])
+  deriv.r[l] <- (df$r[l-1] - df$r[l])/(df$t[l-1] - df$t[l])
+  lag.theta <- lag(df$theta)
+  lead.theta <- lead(df$theta)
+  deriv.theta <- (lead.theta-lag.theta)/(lead.t-lag.t)
+  deriv.theta[1] <-  (df$theta[2] - df$theta[1])/(df$t[2] - df$t[1])
+  deriv.theta[l] <- (df$theta[l-1] - df$theta[l])/(df$t[l-1] - df$t[l])
+  fd <- (sqrt((deriv.r^2) + (df$r * deriv.theta)^2))*3600
+  # second derivative
+  deriv.r.sec <- (lead(deriv.r) - lag(deriv.r))/(lead.t - lag.t)
+  deriv.r.sec[1] <-  (deriv.r[2] - deriv.r[1])/(df$t[2] - df$t[1])
+  deriv.r.sec[l] <- (deriv.r[l-1] -  deriv.r[l])/(df$t[l-1] - df$t[l])
+  deriv.theta.sec <- (lead(deriv.theta) - lag(deriv.theta))/(lead.t - lag.t)
+  deriv.theta.sec[1] <-  (deriv.theta[2] - deriv.theta[1])/(df$t[2] - df$t[1])
+  deriv.theta.sec[l] <- (deriv.theta[l-1] -  deriv.theta[l])/(df$t[l-1] - df$t[l])
+  sd <-(sqrt(
+    (deriv.r.sec + df$r * (deriv.theta^2))^2 +
+    (df$r * deriv.theta.sec + 2*deriv.r*deriv.theta)^2))*3600
+  result <- cbind(t = df$t, 
+                  first.derivative = fd,
+                  second.derivative = sd) %>% as.data.frame
+  return(result)
 }
-FirstDeriv(data)
+result <-  FirstSecDeriv(data)
+result 
+veloplot <- ggplot(data = velocity, aes(x = t, y = deriv)) + 
+  geom_point() + 
+  geom_line() + theme_bw() +
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  xlab("time in seconds") +
+  ylab("appprox. instantaneous velocity in km/h") 
+veloplot
+ggsave("Example_velocity.pdf", plot = veloplot ) # save
 
 
