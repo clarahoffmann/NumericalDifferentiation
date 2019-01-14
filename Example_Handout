@@ -10,15 +10,12 @@ p_load("dplyr",
        "xtable")
 
 
-# define some function
-#f <- function(x){
-  #y = (exp(x))/(sqrt(sin(x)^3 + cos(x)^3))
-  #return(y)
-#}
+# define target function
 f <- function(v){
   y = (v^2)*sin(1/v)
   return(y)
 }
+
 # Two-Point Formula
 TwoPointRep <- function(f, x, hstart, max){
   # define function
