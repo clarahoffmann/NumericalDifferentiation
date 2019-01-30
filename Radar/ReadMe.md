@@ -2,6 +2,7 @@
 
 Solution to problem 8.37 in Gilat \& Subramaniam (2014)
 
+<img src="Radar/RadarSpeed.jpg" width="400">
 
 # Sources
 Amos Gilat, Vish Subramaniam. *Numerical Methods for Engineers and Scientists - An Introduction with Applications Using Matlab*. Wiley, 2014.
