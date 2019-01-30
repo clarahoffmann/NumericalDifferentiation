@@ -147,4 +147,4 @@ conver.plot <- ggplot( data = output.melt,
   ylim(c(-0.1, 1))  +
   ylab("approximated first-order derivative") + theme_bw()
 conver.plot
-ggsave("Convergence.pdf", plot = conver.plot ) # save
+ggsave("Convergence.jpg", plot = conver.plot ) # save
