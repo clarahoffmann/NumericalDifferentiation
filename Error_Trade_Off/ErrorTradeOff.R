@@ -108,26 +108,30 @@ ComplexStepRep <- function(f, x, hstart, max){
   return(mat)
 }
 
+
+
+# error plot
+
 # compute analytic derivative value
 f.first <- function(v){
   y = 2*sin(1/v)*v-cos(1/v)
   return(y)
 }
-# true value of derivative at x = 0.1
+# true value of derivative
 deriv.true <- f.first(0.1)
 
-# approximate derivative at x = 0.1 with two-point, three-point, 
-# five-point and complex step approach
+# approximate with more steps
 mycomplex <- ComplexStepRep(f, x = 0.1, hstart = 0.5, max = 100) %>% as.data.frame()
 mytwo <-TwoPointRep(f, x = 0.1, hstart = 0.5, max = 100) %>% as.data.frame()
 mythree <- ThreePointRep(f, x = 0.1, hstart = 0.5, max = 100) %>% as.data.frame()
 myfive <- FivePointRep(f, x = 0.1, hstart = 0.5, max = 100) %>% as.data.frame()
-# name columns
+
 names(mycomplex) <- c("iteration", "Complex")
 names(mytwo) <- c("iteration", "Two-Point")
 names(mythree) <- c("iteration", "Three-Point")
 names(myfive) <- c("iteration", "Five-Point")
-# bind as dataframe
+
+# produce table for latex
 output <- cbind(mytwo[,2], mythree[,2], 
                 myfive[,2], mycomplex[,2])%>% as.data.frame  
 names(output) <- c("two-point", 
@@ -138,10 +142,9 @@ output.melt <- cbind(mytwo, mythree, myfive, mycomplex)  %>%
   melt(id = "iteration")
 names(output.melt) <- c("iteration", "Method", "value")
 output.melt$iteration <- 0.1^output.melt$iteration
-error.melt <- output.melt
-error.melt$value <- abs(output.melt$value - deriv.true) 
 
-# plot approximation error
+error.melt <- output.melt
+error.melt$value <- abs((output.melt$value - deriv.true)/ deriv.true)
 error.plot <- ggplot( data = error.melt, 
                       aes(x = iteration, y = value,
                           group = Method, colour = Method,
@@ -153,4 +156,4 @@ error.plot <- ggplot( data = error.melt,
   scale_y_log10(name = "approximation error",
                 labels=trans_format('log10',math_format(10^.x))) + theme_bw()
 error.plot 
-ggsave("ErrorTradeOff.pdf", plot = error.plot  ) # save
+ggsave("ErrorTradeOff.jpg", plot = error.plot  ) # save
