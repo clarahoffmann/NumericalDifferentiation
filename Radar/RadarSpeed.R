@@ -105,6 +105,6 @@ acc.plot <- ggplot(data = result ,
   ylab("approx. instantaneous acceleration in km/h/s") 
 acc.plot
 plot <- grid.arrange(velo.plot, acc.plot, nrow = 1)
-ggsave("Example_velocity.pdf", plot = plot ) # save
+ggsave("RadarSpeed.jpg", plot = plot ) # save
 
 
