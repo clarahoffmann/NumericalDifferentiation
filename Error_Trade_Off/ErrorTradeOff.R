@@ -150,7 +150,7 @@ error.plot <- ggplot( data = error.melt,
                           group = Method, colour = Method,
                           shape = Method,
                           linetype = Method)) +
-  geom_line() + # geom_point() +
+  geom_line() + 
   scale_x_log10(name = "h",
                 labels=trans_format('log10',math_format(10^.x))) +
   scale_y_log10(name = "approximation error",
