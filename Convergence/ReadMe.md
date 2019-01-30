@@ -1,3 +1,3 @@
 # Convergence of Numerical Differentiation Methods
 
-<img src="Convergence/Convergence.jpg" width="400">
+<img src="Convergence.jpg" width="400">
