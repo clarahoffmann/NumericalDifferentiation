@@ -1,3 +1,3 @@
 # Measuring Velocity and Acceleration with Numerical Differentiation
 
-Author: Clara Hoffmann
+Solution to problem 8.37 in Gilat \& Subramaniam (2014)
