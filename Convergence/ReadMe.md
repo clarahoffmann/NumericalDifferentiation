@@ -32,17 +32,6 @@ The different convergence rates and the collapse of the finite different formula
 The finite difference methods collapse to zero with very small absolute values of the step size h due to the subtractive cancellation error. The complex step approach (purple crosses) meanwhile keeps on converging to the true value of the derivative.
 ### Code Structure
 
-Load the necessary packages.
-```r
-# load packages
-if (!require("pacman")) 
-  install.packages("pacman"); library("pacman") 
-p_load("dplyr", 
-       "reshape2",
-       "ggplot2",
-       "xtable",
-       "scales")
-```
 Define the function of which we want to find the derivative.
 ```r
 f <- function(v){
