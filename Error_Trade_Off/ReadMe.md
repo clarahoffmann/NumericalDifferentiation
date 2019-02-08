@@ -10,6 +10,6 @@ Take for example the two-point formula:
 
 As the step size h approaches zero, the computer will fail to represent the distance between the function values in the enumerator. This is because it becomes so close to zero. At first, the computer will round the distance to the next representable number. Because we divide by another small number this can produce rounding errors. Ultimately, the enumerator will become so small that the computer rounds it to zero - this makes the approximation useless!
 
-This code produces a graph that illustrates the trade-off between large and small absolute step sizes in finite difference formulas. 
+This code produces a graph that illustrates the trade-off between large and small absolute step sizes in finite difference formulas. As an alternative, the complex step approach is used. The latter is unaffected by the subtractiv cancellation error and converges to the true derivative value long after the finite difference methods have deteriorated. For this reason the complex step approach is the standard in current numerical differentiation software packages (see for example NumDeriv in R).
 
 <img src="ErrorTradeOff.jpg" width="400">
