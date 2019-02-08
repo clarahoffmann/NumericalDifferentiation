@@ -5,7 +5,7 @@ There exist a wide range of numerical differentiation methods with different spe
 
 This code illustrates the advantage of the complex step approach over finite difference formulas.
 By approximating the first-order derivative of the function
-<!-- f(x) = (x^2)sin(1/x-->
+f(x) = (x^2)sin(1/x)
 
 
 <img src="SoepExplorerBasic.PNG" width="1200">
