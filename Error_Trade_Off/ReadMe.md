@@ -14,6 +14,9 @@ This code produces a graph that illustrates the trade-off between large and smal
 
 <img src="ErrorTradeOff.jpg" width="400">
 
+The dilemma was also illustrated in this way by Martins, Sturdza and Alonsa (2003). 
+In this example the function
+
 # Code Structure
 
 
