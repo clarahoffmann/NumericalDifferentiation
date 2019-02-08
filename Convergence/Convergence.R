@@ -145,6 +145,10 @@ conver.plot <- ggplot( data = output.melt,
   scale_x_log10(name = "h",
                 labels=trans_format('log10',math_format(10^.x))) + 
   ylim(c(-0.1, 1))  +
-  ylab("approximated first-order derivative") + theme_bw()
+  ylab("approximated first-order derivative") + theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) 
+
 conver.plot
-ggsave("Convergence.jpg", plot = conver.plot ) # save
+ggsave("Convergence.pdf", plot = conver.plot ) # save
+
