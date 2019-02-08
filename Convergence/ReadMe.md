@@ -9,13 +9,13 @@ By approximating the first-order derivative of the function
 
 at the point x = 0.1 with the
 
-* two-point formula
+* two-point formula \
 <a href="https://www.codecogs.com/eqnedit.php?latex=f'(x)&space;\approx&space;\frac{f(x&plus;h)-f(x)}{h}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f'(x)&space;\approx&space;\frac{f(x&plus;h)-f(x)}{h}" title="f'(x) \approx \frac{f(x+h)-f(x)}{h}" /></a>
-* three-point formula
+* three-point formula \
 <a href="https://www.codecogs.com/eqnedit.php?latex=f'(x)&space;\approx&space;\frac{f(x&plus;h)-f(x-h)}{2h}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f'(x)&space;\approx&space;\frac{f(x&plus;h)-f(x-h)}{2h}" title="f'(x) \approx \frac{f(x+h)-f(x-h)}{2h}" /></a>
-* five-point formula
+* five-point formula \
 <a href="https://www.codecogs.com/eqnedit.php?latex=f'(x)&space;=&space;\frac{-f(x&plus;2h)&space;&plus;&space;8f(x&plus;h)&space;-8f(x-h)&space;&plus;f(x-2h)&space;}{12h}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f'(x)&space;=&space;\frac{-f(x&plus;2h)&space;&plus;&space;8f(x&plus;h)&space;-8f(x-h)&space;&plus;f(x-2h)&space;}{12h}" title="f'(x) = \frac{-f(x+2h) + 8f(x+h) -8f(x-h) +f(x-2h) }{12h}" /></a>
-* complex step approach
+* complex step approach \
 <a href="https://www.codecogs.com/eqnedit.php?latex=f'(x)&space;\approx&space;\frac{Im(f(x&plus;ih)}{h}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f'(x)&space;\approx&space;\frac{Im(f(x&plus;ih)}{h}" title="f'(x) \approx \frac{Im(f(x+ih)}{h}" /></a>
 
 ### Packages
