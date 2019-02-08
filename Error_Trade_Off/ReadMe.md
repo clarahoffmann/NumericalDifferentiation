@@ -58,6 +58,17 @@ TwoPointRep <- function(f, x, hstart, max){
 ```
 The function allows to enter the target function, scalar x-value, a starting value for the step size. The input max determines for how many values the derivative should be approximated. The sequence of step sizes is h^1, h^2, ... h^max.
 
+Then calculate the real value of the derivative
+
+```r
+# compute analytic derivative value
+f.first <- function(v){
+  y = 2*sin(1/v)*v-cos(1/v)
+  return(y)
+}
+# true value of derivative
+deriv.true <- f.first(0.1)
+```
 
 # Sources
 For the complex step approach:
