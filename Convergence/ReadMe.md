@@ -94,4 +94,13 @@ myfive <- FivePointRep(f, x = 0.1, hstart = 0.01, max = 12) %>% as.data.frame()
 
 In the end we bind the data as a data.frame and produce a latex table with xtable() as well as the graph seen above with ggplot().
 
+# Sources
+For the complex step approach:
+ * Joaquim R. R. A. Martins, Peter Sturdza and Juan J. Alonso. The Complex-Step Derivative Approximation. ACM Transactions on Mathematical Software, Vol.29, No. 3, September 2003, Pages 245–262, 2003.
+ * William Squire, George Trapp. Using Complex Variables to Estimate Derivatives of Real Functions. SIAM Rev. Vol. 40, No. 1 p. 110-112, 1998. \\
+
+For finite difference formulas and the structure of the floating-point arithmetic:
+* C. Woodford, C. Phillips. Numerical Methods with Worked Examples: MatlabEdition. Springer, p. 119-128, 2012.
+* James E. Gentle. Numerical Linear Algebra for Applications in Statistics. George Mason University, p. 1 - 12, 1998
+
 
