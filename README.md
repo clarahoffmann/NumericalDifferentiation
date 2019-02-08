@@ -9,7 +9,7 @@ Published in: Numerical Introductory Seminar - Student Project on "Numerical Dif
 
 Description: Numerical Differentiation Methods
 
-Keywords: differentiation, numerical methods, derivative, subtractive cancellation
+Keywords: numerical differentiation, numerical methods, derivative, subtractive cancellation
 
 Author: Clara Hoffmann
 
