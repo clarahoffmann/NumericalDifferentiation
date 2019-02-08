@@ -37,7 +37,7 @@ p_load("dplyr",
        "scales")
 ```
 Define the function of which we want to find the derivative.
-```
+```r
 f <- function(v){
   y = (v^2)*sin(1/v)
   return(y)
@@ -46,7 +46,7 @@ f <- function(v){
 
 Define the two-point formula function. It takes the target function, the x-value at which the derivative should be approximated, a starting value for the step size, and a maximum number of iterations as inputs.
 It will approximate the derivative at y with h^1, h^2, ... h^max and return a vector of the approximation at these step sizes.
-```
+```r
 # Two-Point Formula
 TwoPointRep <- function(f, x, hstart, max){
   # define function
@@ -73,14 +73,24 @@ TwoPointRep <- function(f, x, hstart, max){
 The three-point and five-point formula follow the same structure.
 
 For the complex step approach, we first have to create a complex number...
-```
+```r
 # create complex number
 i <- complex(real = 0, imaginary = 1)
 ```
 ... and retrieve the approximation for the derivative by only evaluating the imaginary part of the complex number.
-```
+```r
 deriv <-  Im(func(x+i*h))/h
 ```
 The skeleton for producing a sequence of derivative approximation stays the same.
+Call the functions to produce the numerical derivatives ...
+```r
+Call the functions to produce the numerical derivatives ...
+mycomplex <- ComplexStepRep(f, x = 0.1, hstart = 0.01, max = 12) %>% as.data.frame()
+mytwo <-TwoPointRep(f, x = 0.1, hstart = 0.01, max = 12) %>% as.data.frame()
+mythree <- ThreePointRep(f, x = 0.1, hstart = 0.01, max = 12) %>% as.data.frame()
+myfive <- FivePointRep(f, x = 0.1, hstart = 0.01, max = 12) %>% as.data.frame()
+```
+
+In the end we bind the data as a data.frame and produce a latex table with xtable() as well as the graph seen above with ggplot().
 
 
