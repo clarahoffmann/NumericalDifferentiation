@@ -36,5 +36,13 @@ p_load("dplyr",
        "xtable",
        "scales")
 ```
+Define the function of which we want to find the derivative.
+```
+f <- function(v){
+  y = (v^2)*sin(1/v)
+  return(y)
+}
+```
+
 
 
