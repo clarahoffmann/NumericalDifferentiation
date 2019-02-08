@@ -22,7 +22,14 @@ In this example the derivative of the function
 is approximated at the point x = 0.1.
 
 # Code Structure
+Define the function of which we want to estimate the derivative.
 
+```r
+f <- function(v){
+  y = (v^2)*sin(1/v)
+  return(y)
+}
+```
 
 # Sources
 For the complex step approach:
