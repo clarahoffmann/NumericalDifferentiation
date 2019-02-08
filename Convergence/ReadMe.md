@@ -18,6 +18,7 @@ at the point x = 0.1 with the
 * complex step approach \
 <a href="https://www.codecogs.com/eqnedit.php?latex=f'(x)&space;\approx&space;\frac{Im(f(x&plus;ih)}{h}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f'(x)&space;\approx&space;\frac{Im(f(x&plus;ih)}{h}" title="f'(x) \approx \frac{Im(f(x+ih)}{h}" /></a>
 
+, where h denotes the step size.
 The different convergence rates and the collapse of the finite different formulas at very small step sizes h are illustrated in a graph.
 
 <img src="Convergence.jpg" width="600">
