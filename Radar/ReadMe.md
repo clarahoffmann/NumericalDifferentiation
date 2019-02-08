@@ -13,7 +13,8 @@ Any radar that measures speed of a moving object uses numerical differentiation.
  and \
 <a href="https://www.codecogs.com/eqnedit.php?latex=a&space;=&space;\sqrt{\Bigg[\frac{d^2r}{dt^2}&space;&plus;&space;r\bigg(\frac{d\theta}{dt}\bigg)^2\Bigg]^2&space;&plus;&space;\Bigg[r\frac{d^2\theta}{dt^2}&space;&plus;&space;2\frac{dr}{dt}\frac{d\theta}{dt}}\Bigg]^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a&space;=&space;\sqrt{\Bigg[\frac{d^2r}{dt^2}&space;&plus;&space;r\bigg(\frac{d\theta}{dt}\bigg)^2\Bigg]^2&space;&plus;&space;\Bigg[r\frac{d^2\theta}{dt^2}&space;&plus;&space;2\frac{dr}{dt}\frac{d\theta}{dt}}\Bigg]^2" title="a = \sqrt{\Bigg[\frac{d^2r}{dt^2} + r\bigg(\frac{d\theta}{dt}\bigg)^2\Bigg]^2 + \Bigg[r\frac{d^2\theta}{dt^2} + 2\frac{dr}{dt}\frac{d\theta}{dt}}\Bigg]^2" /></a>.
 
-The approximation of the derivatives with a two-point formula (end nodes) and three-point formula (interior nodes) delivers the following graph \\
+The approximation of the derivatives with a two-point formula (end nodes) and three-point formula (interior nodes) delivers this graph 
+\
 <img src="RadarSpeed.jpg" width="500">
 
 # Code 
