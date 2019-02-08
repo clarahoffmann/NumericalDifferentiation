@@ -15,7 +15,11 @@ This code produces a graph that illustrates the trade-off between large and smal
 <img src="ErrorTradeOff.jpg" width="400">
 
 The dilemma was also illustrated in this way by Martins, Sturdza and Alonsa (2003). 
-In this example the function
+In this example the derivative of the function
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;(x^2)sin(1/x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)&space;=&space;(x^2)sin(1/x)" title="f(x) = (x^2)sin(1/x)" /></a>
+
+is approximated at the point x = 0.1.
 
 # Code Structure
 
