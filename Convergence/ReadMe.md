@@ -72,5 +72,15 @@ TwoPointRep <- function(f, x, hstart, max){
 ```
 The three-point and five-point formula follow the same structure.
 
+For the complex step approach, we first have to create a complex number...
+```
+# create complex number
+i <- complex(real = 0, imaginary = 1)
+```
+... and retrieve the approximation for the derivative by only evaluating the imaginary part of the complex number.
+```
+deriv <-  Im(func(x+i*h))/h
+```
+The skeleton for producing a sequence of derivative approximation stays the same.
 
 
