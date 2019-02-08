@@ -16,9 +16,9 @@ at the point x = 0.1 with the
 * five-point formula \
 <a href="https://www.codecogs.com/eqnedit.php?latex=f'(x)&space;=&space;\frac{-f(x&plus;2h)&space;&plus;&space;8f(x&plus;h)&space;-8f(x-h)&space;&plus;f(x-2h)&space;}{12h}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f'(x)&space;=&space;\frac{-f(x&plus;2h)&space;&plus;&space;8f(x&plus;h)&space;-8f(x-h)&space;&plus;f(x-2h)&space;}{12h}" title="f'(x) = \frac{-f(x+2h) + 8f(x+h) -8f(x-h) +f(x-2h) }{12h}" /></a>
 * complex step approach \
-<a href="https://www.codecogs.com/eqnedit.php?latex=f'(x)&space;\approx&space;\frac{Im(f(x&plus;ih)}{h}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f'(x)&space;\approx&space;\frac{Im(f(x&plus;ih)}{h}" title="f'(x) \approx \frac{Im(f(x+ih)}{h}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=f'(x)&space;\approx&space;\frac{Im(f(x&plus;ih)}{h}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f'(x)&space;\approx&space;\frac{Im(f(x&plus;ih)}{h}" title="f'(x) \approx \frac{Im(f(x+ih)}{h}" /></a>,
 
-, where h denotes the step size.
+where h denotes the step size.
 The different convergence rates and the collapse of the finite different formulas at very small step sizes h are illustrated in a graph.
 
 <img src="Convergence.jpg" width="600">
