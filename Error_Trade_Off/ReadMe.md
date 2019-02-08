@@ -30,6 +30,34 @@ f <- function(v){
   return(y)
 }
 ```
+Define the finite difference formulas and complex step approach. 
+
+```r
+# Two-Point Formula
+TwoPointRep <- function(f, x, hstart, max){
+  # define function
+  func <- f
+  # empty matrix for returning values
+  v <- 1:max
+  mat <- matrix(rep(v,2), ncol = 2)
+  # set counter to zero
+  count = 0
+  # start producing the derivatives
+  repeat {
+    count = count + 1
+    h = hstart^count
+    # 2point numerical derivative
+    deriv <- (func(x+h)-func(x))/h
+    mat[count,2] <- deriv
+    if (count == max){
+      break
+    }
+  }
+  return(mat)
+}
+```
+The function allows to enter the target function, scalar x-value, a starting value for the step size. The input max determines for how many values the derivative should be approximated. The sequence of step sizes is h^1, h^2, ... h^max.
+
 
 # Sources
 For the complex step approach:
