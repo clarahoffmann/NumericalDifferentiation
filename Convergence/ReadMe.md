@@ -21,6 +21,8 @@ at the point x = 0.1 with the
 The different convergence rates and the collapse of the finite different formulas at very small step sizes h are illustrated in a graph.
 
 <img src="Convergence.jpg" width="600">
+
+The finite difference methods collapse to zero with very small absolute values of the step size h due to the subtractive cancellation error. The complex step approach (purple crosses) meanwhile keeps on converging to the true value of the derivative.
 ### Packages
 
 ```r
