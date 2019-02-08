@@ -18,5 +18,6 @@ Any radar that measures speed of a moving object uses numerical differentiation.
 
 # Sources
 Amos Gilat, Vish Subramaniam. *Numerical Methods for Engineers and Scientists - An Introduction with Applications Using Matlab*. Wiley, 2014. \
+
 You can find some similar problems in \
 Jaan Kiusalaas. *Numerical Methods in Engineering with MATLAB*. Cambridge University Press, p. 182 - 195, 2005.
