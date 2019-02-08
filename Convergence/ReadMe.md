@@ -23,20 +23,18 @@ The different convergence rates and the collapse of the finite different formula
 <img src="Convergence.jpg" width="600">
 
 The finite difference methods collapse to zero with very small absolute values of the step size h due to the subtractive cancellation error. The complex step approach (purple crosses) meanwhile keeps on converging to the true value of the derivative.
-### Packages
+### Code Structure
 
+Load the necessary packages.
 ```r
 # load packages
 if (!require("pacman")) 
   install.packages("pacman"); library("pacman") 
-
-p_load("magrittr", 
-       "dplyr", 
-       "shiny",
-       "plotly",
-       "DT",
-       "haven")
-
+p_load("dplyr", 
+       "reshape2",
+       "ggplot2",
+       "xtable",
+       "scales")
 ```
 
 
