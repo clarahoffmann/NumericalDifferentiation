@@ -44,5 +44,31 @@ f <- function(v){
 }
 ```
 
+Define the two-point formula function. It takes the target function, the x-value at which the derivative should be approximated, a starting value for the step size, and a maximum number of iterations as inputs.
+It will approximate the derivative at y with h^1, h^2, ... h^max and return a vector of the approximation at these step sizes.
+```
+# Two-Point Formula
+TwoPointRep <- function(f, x, hstart, max){
+  # define function
+  func <- f
+  # empty matrix for returning values
+  v <- 1:max
+  mat <- matrix(rep(v,2), ncol = 2)
+  # set counter to zero
+  count = 0
+  # start producing the derivatives
+  repeat {
+    count = count + 1
+    h = hstart^count
+    # 2point numerical derivative
+    deriv <- (func(x+h)-func(x))/h
+    mat[count,2] <- deriv
+    if (count == max){
+      break
+    }
+  }
+  return(mat)
+}
+
 
 
