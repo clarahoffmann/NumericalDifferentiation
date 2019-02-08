@@ -12,7 +12,7 @@ As the step size h approaches zero, the computer will fail to represent the dist
 
 This code produces a graph that illustrates the trade-off between large and small absolute step sizes in finite difference formulas. As an alternative, the complex step approach is used. The latter is unaffected by the subtractiv cancellation error and converges to the true derivative value long after the finite difference methods have deteriorated. For this reason the complex step approach is the standard in current numerical differentiation software packages (see for example NumDeriv in R).
 
-<img src="ErrorTradeOff.jpg" width="400">
+<img src="ErrorTradeOff.jpg" width="600">
 
 The dilemma was also illustrated in this way by Martins, Sturdza and Alonsa (2003). 
 In this example the derivative of the function
