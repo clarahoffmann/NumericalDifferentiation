@@ -69,6 +69,8 @@ TwoPointRep <- function(f, x, hstart, max){
   }
   return(mat)
 }
+```
+The three-point and five-point formula follow the same structure.
 
 
 
