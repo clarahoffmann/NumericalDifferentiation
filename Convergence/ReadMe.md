@@ -28,7 +28,7 @@ where h denotes the step size.
 The different convergence rates and the collapse of the finite different formulas at very small step sizes h are illustrated in a graph.
 
 <p align="center">
-<img src="https://github.com/clarahoffmann/NumericalDifferentiation/blob/master/Convergence/conver.gif" alt='Convergence of Numerical Differentiation Methods' width="600"/>
+<img src="https://github.com/clarahoffmann/NumericalDifferentiation/blob/master/Convergence/conver.gif" alt='Convergence of Numerical Differentiation Methods'/>
 </p>
 
 The finite difference methods collapse to zero with very small absolute values of the step size h due to the subtractive cancellation error. The complex step approach (purple crosses) meanwhile keeps on converging to the true value of the derivative.
