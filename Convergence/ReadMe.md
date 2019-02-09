@@ -27,7 +27,9 @@ at the point x = 0.1 with the
 where h denotes the step size.
 The different convergence rates and the collapse of the finite different formulas at very small step sizes h are illustrated in a graph.
 
-<img src="Convergence.jpg" width="600">
+<p align="center">
+<img src="https://github.com/clarahoffmann/NumericalDifferentiation/blob/master/Convergence/conver.gif" alt='Convergence of Numerical Differentiation Methods'/>
+</p>
 
 The finite difference methods collapse to zero with very small absolute values of the step size h due to the subtractive cancellation error. The complex step approach (purple crosses) meanwhile keeps on converging to the true value of the derivative.
 ### Code Structure
@@ -87,7 +89,11 @@ mythree <- ThreePointRep(f, x = 0.1, hstart = 0.01, max = 12) %>% as.data.frame(
 myfive <- FivePointRep(f, x = 0.1, hstart = 0.01, max = 12) %>% as.data.frame()
 ```
 
-In the end we bind the data as a data.frame and produce a latex table with xtable() as well as the graph seen above with ggplot().
+In the end we bind the data as a data.frame and produce a latex table with xtable() as well as the graph seen above with ggplot() as a pdf or with additional gganimate() options as a gif, as seen above.
+
+<p align="center">
+<img src="https://github.com/clarahoffmann/NumericalDifferentiation/blob/master/Convergence/Convergence.jpg" alt='Convergence of Numerical Differentiation Methods'/>
+</p>
 
 # Sources
 For the complex step approach:
