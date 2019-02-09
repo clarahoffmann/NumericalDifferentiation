@@ -10,7 +10,7 @@ Solution to problem 8.37 in Gilat \& Subramaniam (2014)
 Many radars that measures speed of a moving object use numerical differentiation. 
 In this appplication, a radar station which measures the speed of passing planes uses numerical differentiation to obtain their speed and acceleration. This example is taken from Gilat \& Subramaniam (2014). Assume the angle and distance towards an aircraft is recorded every three seconds, like this \
 <img src="airplane_pictogram.jpg" width="400">
-*(produced in Google Sheets)*
+*(produced in Google Sheets)*.
 
 The velocity and acceleration can be determined using the distance to the airplane (r), the angle of the radar to the ground (theta) and the time (t) by 
 
