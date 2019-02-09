@@ -4,10 +4,15 @@ setwd("/Users/claracharlottehoffmann/Desktop/NumericalIntroductory")
 # load packages
 if (!require("pacman")) 
   install.packages("pacman"); library("pacman") 
-p_load("dplyr", 
+p_load("Rcpp",
+       "gganimate",
+       "dplyr", 
        "reshape2",
        "ggplot2",
        "scales")
+if (!require("transformr")) 
+  devtools::install_github("thomasp85/transformr"); 
+library("transformr") 
 
 # function of which we want to find
 # the derivative value
@@ -151,9 +156,18 @@ error.plot <- ggplot( data = error.melt,
                           shape = Method,
                           linetype = Method)) +
   geom_line() + 
+  coord_cartesian(clip = 'off') +
+  shadow_mark() +
   scale_x_log10(name = "h",
                 labels=trans_format('log10',math_format(10^.x))) +
-  scale_y_log10(name = "approximation error",
-                labels=trans_format('log10',math_format(10^.x))) + theme_bw()
+  scale_y_log10(name = "relative approximation error",
+                labels=trans_format('log10',math_format(10^.x))) + theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +  
+  transition_manual(rev(iteration), cumulative = T) + ease_aes('sine-in-out')
 error.plot 
+anim_save("ErrorTradeOff.gif", animation = last_animation())
 ggsave("ErrorTradeOff.jpg", plot = error.plot  ) # save
+
+
+
