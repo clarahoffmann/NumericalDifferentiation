@@ -1,14 +1,21 @@
 # set working directory
-setwd("/Users/claracharlottehoffmann/Desktop/NumericalIntroductory")
+setwd("...")
 
 # load packages
 if (!require("pacman")) 
   install.packages("pacman"); library("pacman") 
-p_load("dplyr", 
+p_load("Rcpp",
+       "gganimate",
+       "dplyr", 
        "reshape2",
        "ggplot2",
        "xtable",
-       "scales")
+       "scales",
+       "devtools",
+       "magick")
+if (!require("transformr")) 
+  devtools::install_github("thomasp85/transformr"); 
+library("transformr") 
 
 # function of which we want to find
 # the derivative value
@@ -142,13 +149,21 @@ conver.plot <- ggplot( data = output.melt,
                       shape = Method,
                       linetype = Method)) + 
     geom_line() + geom_point() + 
+  coord_cartesian(clip = 'off') + # gganimate
+  shadow_mark() + # gganimate
   scale_x_log10(name = "h",
                 labels=trans_format('log10',math_format(10^.x))) + 
   ylim(c(-0.1, 1))  +
   ylab("approximated first-order derivative") + theme_bw() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.background = element_blank(), axis.line = element_line(colour = "black")) 
-
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  # gganimate
+  transition_manual(rev(iteration), cumulative = T) + ease_aes('sine-in-out')
 conver.plot
-ggsave("Convergence.pdf", plot = conver.plot ) # save
+# save as .gif
+anim_save("conver.gif", animation = last_animation())
+
+# save as .pdf - make sure you disable the gganimate options
+# in ggplot then
+ggsave("Convergence.pdf", plot = conver.plot ) 
 
