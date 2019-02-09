@@ -70,6 +70,12 @@ f.first <- function(v){
 deriv.true <- f.first(0.1)
 ```
 
+Then compute the relative error and plot it over the step-size, either as a .gif or .pdf/.jpg but make sure you disable the gganimate options when saving it as a .pdf/.jpg.
+
+<p align="center">
+<img src="ErrorTradeOff.jpg" width="600">
+</p>
+
 # Sources
 For the complex step approach:
  * Joaquim R. R. A. Martins, Peter Sturdza and Juan J. Alonso. *The Complex-Step Derivative Approximation*. ACM Transactions on Mathematical Software, Vol.29, No. 3, September 2003, Pages 245–262, 2003.
