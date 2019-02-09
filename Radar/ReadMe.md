@@ -8,7 +8,10 @@ Solution to problem 8.37 in Gilat \& Subramaniam (2014)
 
 # Using Radars to Measure Speed & Velocity
 Many radars that measures speed of a moving object use numerical differentiation. 
-In this appplication, a radar station which measures the speed of passing planes uses numerical differentiation to obtain their speed and acceleration. This example is taken from Gilat \& Subramaniam (2014). Assume the angle and distance towards an aircraft is recorded every three seconds. The velocity and acceleration can be determined using the distance to the airplane (r), the angle of the radar to the ground (theta) and the time (t) by 
+In this appplication, a radar station which measures the speed of passing planes uses numerical differentiation to obtain their speed and acceleration. This example is taken from Gilat \& Subramaniam (2014). Assume the angle and distance towards an aircraft is recorded every three seconds, like this
+<img src="airplane_pictogram.jpg" width="300">
+
+The velocity and acceleration can be determined using the distance to the airplane (r), the angle of the radar to the ground (theta) and the time (t) by 
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=v&space;=&space;\sqrt{\bigg(\frac{dr}{dt}\bigg)^2&space;&plus;&space;\bigg(r\frac{d\theta}{dt}\bigg)^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v&space;=&space;\sqrt{\bigg(\frac{dr}{dt}\bigg)^2&space;&plus;&space;\bigg(r\frac{d\theta}{dt}\bigg)^2}" title="v = \sqrt{\bigg(\frac{dr}{dt}\bigg)^2 + \bigg(r\frac{d\theta}{dt}\bigg)^2}" /></a> \
  and \
