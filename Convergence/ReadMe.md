@@ -92,7 +92,7 @@ myfive <- FivePointRep(f, x = 0.1, hstart = 0.01, max = 12) %>% as.data.frame()
 In the end we bind the data as a data.frame and produce a latex table with xtable() as well as the graph seen above with ggplot() as a pdf or with additional gganimate() options as a gif, as seen above.
 
 <p align="center">
-<img src="https://github.com/clarahoffmann/NumericalDifferentiation/blob/master/Convergence/Convergence.jpg" alt='Convergence of Numerical Differentiation Methods'/>
+<img src="https://github.com/clarahoffmann/NumericalDifferentiation/blob/master/Convergence/Convergence.jpg" alt='Convergence of Numerical Differentiation Methods' width="600" />
 </p>
 
 # Sources
