@@ -11,7 +11,7 @@
 ###########################################################
 
 # set working directory
-setwd("...")
+setwd("/Users/claracharlottehoffmann/Desktop/NumericalIntroductory")
 
 # load packages
 if (!require("pacman")) 
@@ -110,7 +110,8 @@ FivePointRep <- function(f, x, hstart, max){
     count = count + 1
     h = hstart^count
     # 5point numerical derivative
-    deriv <-(func(x-2*h)-8*func(x-h)+8*func(x+h)-func(x+2*h))/(12*h)
+    deriv <-(func(x-2*h)-8*func(x-h)+
+               8*func(x+h)-func(x+2*h))/(12*h)
     mat[count,2] <- deriv
     if (count == max){
       break
@@ -206,4 +207,4 @@ error.plot
 # save as .gif
 anim_save("ErrorTradeOff.gif", animation = last_animation())
 # or save as .pdf (enable all gganimate options before)
-ggsave("ErrorTradeOff.jpg", plot = error.plot  ) 
+#ggsave("ErrorTradeOff.jpg", plot = error.plot  ) 
