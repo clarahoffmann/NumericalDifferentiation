@@ -1,4 +1,10 @@
-# The Dilemma of Choosing a Step-Size in Finite Difference Methods
+
+# <p align='center'>The Dilemma of Choosing a Step-Size in Finite Difference Methods</p>
+
+# Content
+* Common Methods
+* Code Structure
+* Sources
 
 Finite difference formulas in numerical differentiation theoretically deliver more accurate results the smaller their step size becomes. The approximation becomes more exact the closer the points used for the approximation are to the function value at which we want to obtain the derivative. This implies that the absolute step size should converge to zero.
 However, finite difference methods use the difference between close function values to obtain the derivative. Common computer systems operate on a 64-bit floating-point arithmetic. This arithmetic aims to represent as wide a range of numbers with as much accuracy as possible. In particular, there is a minimum distance between each number that this system can represent.
