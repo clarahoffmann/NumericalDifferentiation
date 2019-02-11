@@ -1,6 +1,17 @@
 ###########################################################
+#
+# Approximating Speed and Velocity with Finite Difference
+# Formulas
+#
+# Student Project on Numerical Differentiation
+# Author: Clara Hoffmann
+#
+# This code is the solution to problem 8.37 in
+# Gilat and Subramaniam (2014)
+###########################################################
+
 # set working directory
-setwd("/Users/claracharlottehoffmann/Desktop/NumericalIntroductory")
+setwd("...")
 
 # load packages
 if (!require("pacman")) 
@@ -87,24 +98,30 @@ FirstSecDeriv <- function(df){
 result <-  FirstSecDeriv(data)
 result 
 
+# plot the results
+# for velocity
 velo.plot <- ggplot(data = result , 
                    aes(x = t, 
                        y = first.derivative)) + 
   geom_point() + 
   geom_line() + theme_bw() +
   xlab("time in seconds") +
-  ylab("approx. instantaneous velocity in km/h") 
+  ylab("approx. instantaneous velocity in km/h")  +
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(), 
+        axis.line = element_line(colour = "black")) 
 velo.plot
-###########################################################
-
+# for acceleration
 acc.plot <- ggplot(data = result , 
                   aes(x = t, y = second.derivative)) + 
   geom_point() + 
   geom_line() + theme_bw() +
   xlab("time in seconds") +
-  ylab("approx. instantaneous acceleration in km/h/s") 
+  ylab("approx. instantaneous acceleration in km/h/s") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) 
+
 acc.plot
 plot <- grid.arrange(velo.plot, acc.plot, nrow = 1)
 ggsave("RadarSpeed.jpg", plot = plot ) # save
-
-
